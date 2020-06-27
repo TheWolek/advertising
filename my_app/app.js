@@ -3,17 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
-//Database
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '132',
-  database: 'advertising'
-})
-
-//connection.connect()
+const DB_query = require('./models/DBquery');
 
 //Routes
 const indexRouter = require('./routes/index');
@@ -49,5 +39,8 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+console.log('select * from users')
+DB_query('select * from users', 'select')
 
 module.exports = app;
