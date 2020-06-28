@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1= title
+
+    ul
+        each advert in advert_list
+            li
+                a(href=advert.url) #{advert.title}
+        else
+            li There are no adverts
