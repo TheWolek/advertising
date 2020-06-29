@@ -5,10 +5,12 @@ block content
   
   h1 Categories
 
-  ul(class="cat-list")
+  div.cat-list
     each cat in category_list
-      li
-        a(href=cat.url) #{cat.name}
+      div.cat-item
+        a(href=cat.url)
+          div.cat-item-img
+          span #{cat.name}
     else
       li There are no categories
 

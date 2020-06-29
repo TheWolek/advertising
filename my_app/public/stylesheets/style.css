@@ -47,6 +47,17 @@ nav ul li {
   list-style: none;
 }
 
-.cat-list li, .adverts-list li {
-  padding: 10px;
+.cat-item a {
+  display: block;
+}
+
+.cat-item, .adverts-list li {
+  max-width: 120px;
+  flex: 0 0 110px;
+  display: flex;
+  justify-content: center;
+}
+
+.cat-item-img {
+  width: 100%;
 }
