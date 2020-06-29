@@ -1,13 +1,20 @@
 extends layout
 
-block content 
+block content
+  .search-cont.col-xs-12
+    form.form-inline(action="" method="post")
+      div
+        .search-box-icon
+          img(src="/images/search.png")
+      input.form-control(type="text" id="search" name="search" placeholder="znajdź coś dla siebie")
+      input.btn(type="submit" value="Szukaj")
   h1 Kategorie
 
-  div.cat-list
+  .cat-list
     each cat in category_list
-      div.cat-item
+      .cat-item
         a(href=cat.url)
-          div.cat-item-img
+          .cat-item-img
             img(src=cat.img)
           span #{cat.name}
     else

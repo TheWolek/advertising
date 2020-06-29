@@ -10,22 +10,16 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav  
-      div(class='nav-items')
-        ul
-          li 
-            a(href='/catalog') Home
-          li 
-            a(href='/catalog/categories') Categories
-          li 
-            a(href='/catalog/add') Create new advert
-      a(href='/user/' class="signInBtn") Sign in / Sign up
-    div(class='container')
-      div(class='row')                
-        div(class='col-sm-10')
+      .nav-items.col-sm-10
+        a(href='/catalog/add') Dodaj ogłoszenie
+        a(href='/user/' class="signInBtn") Zaloguj
+    .container-fluid
+      .row        
+        .col-xs-12.col-sm-12.col-md-10.col-lg-10.col-xl-8
           block content
 
   div
     | Icons made by 
-    Vectors Market, Freepik and mavadee
+    Vectors Market, Becris, Those Icons, Freepik and mavadee
     |  from 
     a(href='https://www.flaticon.com/' title='Flaticon') www.flaticon.com
