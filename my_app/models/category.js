@@ -14,4 +14,10 @@ CatSchema
         return '/catalog/category/' + this._id;
     });
 
+CatSchema
+    .virtual('img')
+    .get(function () {
+        return 'images/' + this.name + '.png'
+    })
+
 module.exports = mongoose.model('Category', CatSchema);
