@@ -115,17 +115,24 @@ function createUsers(cb) {
 function createCats(cb) {
     async.series([
         function (callback) {
-            catCreate('dom', callback);
+            catCreate('AGD', callback);
         },
         function (callback) {
-            catCreate('ogród', callback);
+            catCreate('edukacja', callback);
         },
         function (callback) {
-            catCreate('motoryzacja', callback);
+            catCreate('hobby', callback);
         },
         function (callback) {
-            catCreate('elektronika', callback);
+            catCreate('moda', callback);
+        },
+        function (callback) {
+            catCreate('rolnictwo', callback);
+        },
+        function (callback) {
+            catCreate('sport', callback);
         }
+
     ],
         cb)
 }
@@ -203,9 +210,7 @@ function createAdverts(cb) {
 // }
 
 async.series([
-    createUsers,
-    createCats,
-    createAdverts
+    createCats
 ],
     // Optional callback
     function (err, results) {
