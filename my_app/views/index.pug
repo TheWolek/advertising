@@ -21,9 +21,12 @@ block content
       li There are no categories
 
   h1 Ostatnie ogłoszenia
-  ul(class="adverts-list")
+  .adverts-list
     each advert in advert_list
-      li
-        a(href=advert.url) #{advert.title}
+      .advert-item
+        a(href=advert.url)
+          .advert-item-img
+            img(src="/images/picture.png")
+          span #{advert.title}
     else
-      li There are no adverts
+      div There are no adverts

@@ -13,6 +13,7 @@ html, body {
 
 body {
   overflow-x: hidden;
+  background: rgb(236, 236, 236);
 }
 
 a, a:hover {
@@ -51,14 +52,17 @@ nav {
   margin-left: 3rem;
 }
 
-.signInBtn {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  align-self: flex-end;
+.BGwhite {
   background: #fff;
-  border-radius: 5px;
-  padding: 0 1rem;
+}
+
+.signInBtn {
+  background: var(--lightGreen);
+}
+
+.signInBtn img {
+  height: 16px;
+  margin-right: .5em;
 }
 
 .search-cont .form-inline {
@@ -88,35 +92,51 @@ nav {
   padding-right: 1.5rem;
 }
 
+.search-box-icon img {
+  height: 20px;
+}
+
 .cat-list, .adverts-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  list-style: none;
+}
+
+.adverts-list {
+  margin: 2rem 0;
 }
 
 .cat-item a {
   display: block;
 }
 
-.cat-item, .adverts-list li {
+.cat-item, .advert-item {
   max-width: 120px;
   flex: 0 0 110px;
   display: flex;
   justify-content: center;
 }
 
-.cat-item a {
+.advert-item {
+  background: #dcdcdc;
+  padding-bottom: .5em;
+}
+
+.advert-item + * {
+  margin-left: 1rem;
+}
+
+.cat-item a, .advert-item a {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.cat-item-img {
+.cat-item-img, .advert-item-img {
   max-width: 100%;
 }
 
-.cat-item-img img {
+.cat-item-img img, .advert-item-img img {
   transform: scale(.5, .5);
   max-width: inherit;
 }
