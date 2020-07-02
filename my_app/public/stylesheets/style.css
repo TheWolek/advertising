@@ -38,6 +38,9 @@ nav {
   width: 100%;
   padding: 1rem;
   background: #24b273;
+  height: 8vh;
+  z-index: 99;
+  position: relative;
 }
 
 .nav-items {
@@ -138,4 +141,78 @@ nav {
 .cat-item-img img, .advert-item-img img {
   transform: scale(.5, .5);
   max-width: inherit;
+}
+
+.advert {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-row-gap: 2rem;
+  padding: 2rem 0;
+}
+
+.desc, .contact {
+  width: 100%;
+}
+
+.advert-img {
+  display: flex;
+  justify-content: center;
+}
+
+.desc h1 {
+  text-align: left;
+}
+
+.desc h3:nth-of-type(1) {
+  font-size: 32px;
+}
+
+.desc p {
+  font-size: 18px;
+}
+
+.contact-user a {
+  display: block;
+  width: 35%;
+  font-size: 16px;
+  padding: .7em 0;
+}
+
+.contact-user .btn-primary {
+  margin: .8em 0;
+}
+
+.contact-user a:nth-of-type(2) {
+  outline: 2px solid #000;
+  overflow: hidden;
+}
+
+.contact-user a:nth-of-type(2):hover {
+  outline: 5px solid #000;
+}
+
+.contact-user .btn {
+  transition: all .3s ease;
+}
+
+.nav-expand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #239e68;
+  padding: 1rem 0;
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  left: 0px;
+  transition: all .5s ease-in-out;
+}
+
+.nav-active {
+  transform: translateY(calc(100px + 8vh));
+}
+
+.nav-active a + * {
+  margin-top: 1em;
 }

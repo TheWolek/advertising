@@ -1,7 +1,21 @@
 extends layout
 
 block content
-    h1= title
-    h4 #{price + 'zł'}
-
-    p #{desc}
+    .advert
+        .desc
+            .advert-img
+                img(src="/images/picture.png")
+            h3= title
+            h1 #{price + 'zł'}
+            
+            h3 Opis
+            p #{desc}
+        
+        .contact
+            .contact-user
+                h4 Użytkownik
+                h3
+                    a(href="3") #{owner}
+                a(href="#", class="btn btn-primary") Napisz wiadomość
+                a(href="#", class="btn") 
+                    span Zadzwoń
