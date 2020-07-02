@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 Kategorie
+    .cat-list
+        each cat in category_list
+            .cat-item
+                a(href=cat.url)
+                    .cat-item-img
+                        img(src=cat.img)
+                    span #{cat.name}
+        else
+            span There are no categories

@@ -17,7 +17,7 @@ CatSchema
 CatSchema
     .virtual('img')
     .get(function () {
-        return 'images/' + this.name + '.png'
+        return '/images/' + this.name + '.png'
     })
 
 module.exports = mongoose.model('Category', CatSchema);

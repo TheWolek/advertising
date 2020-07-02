@@ -3,11 +3,18 @@ const Cat = require('../models/category');
 const async = require('async');
 
 exports.categories = function (req, res, next) {
+    // Cat.find()
+    //     .populate('categories')
+    //     .exec(function (err, list_category) {
+    //         if (err) return next(err);
+    //         res.render('category_list', { title: 'category list', category_list: list_category });
+    //     });
+
     Cat.find()
         .populate('categories')
         .exec(function (err, list_category) {
-            if (err) return next(err);
-            res.render('category_list', { title: 'category list', category_list: list_category });
+          if (err) return next(err);
+          res.render('category_list', { category_list: list_category });
         });
 };
 
