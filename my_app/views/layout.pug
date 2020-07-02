@@ -10,12 +10,16 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav  
-      .nav-items.col-sm-10
+      .nav-items.col-xs-12.col-sm-10.col-md-10.col-lg-10.col-xl-9
         a(href='/') Home
         a(href='/catalog/add' class="btn BGwhite") Dodaj ogłoszenie
         a(href='/user' class="btn signInBtn") 
           img(src="/images/user.png")
           span Zaloguj
+        #hamburger
+          span#h-1
+          span#h-2
+          span#h-3
     .nav-expand
       a(href="/") Home
       a(href="/catalog/add") Dodaj ogłoszenie
@@ -25,8 +29,9 @@ html(lang='en')
         .col-xs-12.col-sm-12.col-md-10.col-lg-10.col-xl-8
           block content
 
-  div
-    | Icons made by 
-    Vectors Market, Becris, Those Icons, Freepik and mavadee
-    |  from 
-    a(href='https://www.flaticon.com/' title='Flaticon') www.flaticon.com
+    div
+      | Icons made by 
+      Vectors Market, Becris, Those Icons, Freepik and mavadee
+      |  from 
+      a(href='https://www.flaticon.com/' title='Flaticon') www.flaticon.com
+    script(src="javascript/index.js")

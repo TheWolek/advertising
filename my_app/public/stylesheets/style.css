@@ -50,9 +50,28 @@ nav {
   align-items: center;
 }
 
-.nav-items  * + a  {
+.nav-items * + a  {
   margin-left: 3rem;
 }
+
+.nav-items a {
+  display: none;
+}
+
+#hamburger {
+  width: 32px;
+  height: 32px;
+}
+
+#hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #000;
+  margin-top: 5px;
+}
+
+
 
 .BGwhite {
   background: #fff;
