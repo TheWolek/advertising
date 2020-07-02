@@ -29,4 +29,6 @@ router.post('/advert/add')
 
 router.get('/categories', catController.categories)
 
+router.get('/category/:id', catController.category)
+
 module.exports = router;

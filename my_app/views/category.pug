@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+    h1 #{"Ogłoszenia w " + category.name}
+
+    .adverts-list
+        each advert in category_adverts
+            .advert-item
+                a(href=advert.url)
+                    .advert-item-img
+                        img(src="/images/picture.png")
+                    span #{advert.title}
+        else
+            span There are no adverts

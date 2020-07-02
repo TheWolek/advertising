@@ -1,4 +1,5 @@
 const Cat = require('../models/category');
+const Advert = require('../models/advert');
 
 const async = require('async');
 
@@ -13,10 +14,34 @@ exports.categories = function (req, res, next) {
     Cat.find()
         .populate('categories')
         .exec(function (err, list_category) {
-          if (err) return next(err);
-          res.render('category_list', { category_list: list_category });
+            if (err) return next(err);
+            res.render('category_list', { category_list: list_category });
         });
 };
+
+exports.category = function (req, res, next) {
+    async.parallel({
+        category: function (callback) {
+            Cat.findById(req.params.id)
+                .exec(callback);
+        },
+
+        category_adverts: function (callback) {
+            Advert.find({ 'cat': req.params.id })
+                .exec(callback);
+        },
+
+    }, function (err, results) {
+        if (err) { return next(err); }
+        if (results.category == null) { // No results.
+            var err = new Error('Genre not found');
+            err.status = 404;
+            return next(err);
+        }
+        // Successful, so render
+        res.render('category', { category: results.category, category_adverts: results.category_adverts });
+    });
+}
 
 exports.advert_create_post = function (req, res) {
     res.send('in progress: advert create post');
