@@ -232,6 +232,21 @@ nav {
   transform: translateY(calc(100px + 8vh));
 }
 
-.nav-active a + * {
+.nav-expand a + * {
   margin-top: 1em;
+}
+
+.logo {
+  margin: 0;
+  padding-left: 15px;
+}
+
+@media (min-width:768px) {
+  #hamburger {
+    display: none;
+  }
+
+  .nav-items a {
+    display: block;
+  }
 }

@@ -1,5 +1,5 @@
 const Hamburger = document.getElementById('hamburger')
-const Nav = document.getElementById('nav-expand')
+const Nav = document.querySelector('.nav-expand')
 
 let navActive = false
 
