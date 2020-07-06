@@ -25,8 +25,8 @@ exports.advert_details = function (req, res, next) {
     async.parallel({
         advert: function (callback) {
             Advert.findById(req.params.id)
-                // .populate('owner')
-                // .populate('category')
+                .populate('owner')
+                .populate('cat')
                 .exec(callback);
         },
     }, function (err, results) {
@@ -36,7 +36,9 @@ exports.advert_details = function (req, res, next) {
             err.status = 404;
             return next(err);
         }
-        res.render('advert_detail', { title: results.advert.title, desc: results.advert.desc, price: results.advert.price, owner: results.advert.owner })
+
+        console.log(results)
+        res.render('advert_detail', { advert: results.advert })
     })
 };
 

@@ -103,10 +103,16 @@ function advertCreate(title, desc, price, owner, cat, expire_date, cb) {
 function createUsers(cb) {
     async.series([
         function (callback) {
-            userCreate('admin1', 'admin', 'admin@gmail.com', '2020-06-28', '132', callback);
+            userCreate('admin', 'Master admin', 'admin@gmail.com', '2020-06-28', '132', callback);
         },
         function (callback) {
             userCreate('jan', 'jan', 'jan@gmail.com', '2020-06-28', '1332', callback);
+        },
+        function (callback) {
+            userCreate('mismis', 'Misia', 'misa@gmail.com', '2020-07-06', 'kanapka', callback);
+        },
+        function (callback) {
+            userCreate('szakaron', 'Kot', 'Kot@gmail.com', '2020-07-06', '666', callback);
         }
     ],
         cb)
@@ -115,13 +121,22 @@ function createUsers(cb) {
 function createCats(cb) {
     async.series([
         function (callback) {
+            catCreate('dom', callback);
+        },
+        function (callback) {
+            catCreate('elektronika', callback);
+        },
+        function (callback) {
+            catCreate('moda', callback);
+        },
+        function (callback) {
+            catCreate('motoryzacja', callback);
+        },
+        function (callback) {
             catCreate('AGD', callback);
         },
         function (callback) {
             catCreate('edukacja', callback);
-        },
-        function (callback) {
-            catCreate('hobby', callback);
         },
         function (callback) {
             catCreate('moda', callback);
@@ -130,7 +145,7 @@ function createCats(cb) {
             catCreate('rolnictwo', callback);
         },
         function (callback) {
-            catCreate('sport', callback);
+            catCreate('sport i hobby', callback);
         }
 
     ],
@@ -172,10 +187,16 @@ function createCats(cb) {
 function createAdverts(cb) {
     async.parallel([
         function (callback) {
-            advertCreate('monitor', 'dobry uzywany monitor', 400, users[0], categories[3], '2020-06-29', callback);
+            advertCreate('Monitor LG 22"', 'Monitor LG 22", uzywany w dobrym stanie.', 600, users[0], categories[1], '2020-06-29', callback);
         },
         function (callback) {
-            advertCreate('donice', 'duże nowe donice do kwiatów', 200, users[1], categories[1], '2020-06-30', callback);
+            advertCreate('Duże donice ogrodowe', 'Duże, nowe donice do kwiatów. Średnica - 50cm', 200, users[0], categories[0], '2020-06-30', callback);
+        },
+        function (callback) {
+            advertCreate('Kibord"', 'Stary kibord.', 100, users[3], categories[8], '2020-07-26', callback);
+        },
+        function (callback) {
+            advertCreate('B-smart', 'Stan bardzo dorby, nie zjedzony.', 10, users[2], categories[0], '2020-07-26', callback);
         }
     ])
 }
@@ -210,7 +231,9 @@ function createAdverts(cb) {
 // }
 
 async.series([
-    createCats
+    createUsers,
+    createCats,
+    createAdverts
 ],
     // Optional callback
     function (err, results) {

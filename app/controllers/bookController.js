@@ -64,6 +64,7 @@ exports.book_detail = function (req, res, next) {
             return next(err);
         }
         // Successful, so render.
+        console.log(results)
         res.render('book_detail', { title: results.book.title, book: results.book, book_instances: results.book_instance });
     });
 

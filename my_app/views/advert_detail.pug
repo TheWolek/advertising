@@ -5,17 +5,17 @@ block content
         .desc
             .advert-img
                 img(src="/images/picture.png")
-            h3= title
-            h1 #{price + 'zł'}
+            h3= advert.title
+            h1 #{advert.price + 'zł'}
             
             h3 Opis
-            p #{desc}
+            p #{advert.desc}
         
         .contact
             .contact-user
                 h4 Użytkownik
                 h3
-                    a(href="3") #{owner}
+                    a(href="3") #{advert.owner.name}
                 a(href="#", class="btn btn-primary") Napisz wiadomość
                 a(href="#", class="btn") 
                     span Zadzwoń

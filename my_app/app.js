@@ -10,6 +10,10 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 let db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
+require('./models/user')
+require('./models/category')
+require('./models/advert')
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
