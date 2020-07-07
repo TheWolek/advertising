@@ -15,7 +15,7 @@ require('./models/category')
 require('./models/advert')
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/user');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 
 const app = express();
@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/catalog', catalogRouter);
 
 // catch 404 and forward to error handler

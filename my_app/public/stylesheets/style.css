@@ -79,6 +79,7 @@ nav {
 
 .signInBtn {
   background: var(--lightGreen);
+  color: #000;
 }
 
 .signInBtn img {
@@ -249,6 +250,76 @@ nav {
 .logo {
   margin: 0;
   padding-left: 15px;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  margin: 2rem 0;
+  background: var(--dark);
+  padding: .5rem 2rem 1rem 2rem;
+  color: #fff;
+}
+
+#signIn, #signUp {
+  padding: 1rem 0;
+}
+
+#signIn .form-control, #signUp .form-control {
+  font-size: 17px;
+  height: 38px;
+  background: var(--dark);
+  color: #ccc;
+}
+
+#signIn .form-control:focus {
+  color: #fff;
+}
+
+#signIn .form-control:focus {
+  border: 2px solid #fff;
+  outline: none;
+}
+
+#signUp .btn, #signIn .btn {
+  margin-top: 1.5rem;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#signUp {
+  display: none;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.nav-link:hover {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid var(--lightGreen) !important;
+}
+
+.nav-link:focus {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+.nav-item .active {
+  border-bottom: 2px solid var(--lightGreen) !important;
 }
 
 @media (min-width:768px) {
