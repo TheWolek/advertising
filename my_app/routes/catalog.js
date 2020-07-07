@@ -5,18 +5,6 @@ var userController = require('../controllers/userController');
 var catController = require('../controllers/categoryController');
 var advertController = require('../controllers/advertController');
 
-// USER
-
-router.get('/login', userController.user_login);
-
-router.post('/createUser', userController.user_create);
-
-router.get('/user/:id', userController.user_detail);
-
-router.get('/user/:id/delete', userController.user_delete);
-
-router.post('/user/:id/update', userController.user_update_post);
-
 //ADVERT
 
 router.get('/', advertController.advert_latest);
