@@ -1,7 +1,3 @@
-exports.index = function (req, res) {
-    res.render("user", {});
-}
-
 exports.user_detail = function (req, res) {
     res.send('in progress: user detail: ' + req.params.id);
 };
@@ -19,7 +15,7 @@ exports.user_update_post = function (req, res) {
 };
 
 exports.user_login_get = function (req, res) {
-    res.send('in progress: user login');
+    res.render("user", {});
 };
 
 exports.user_login_post = function (req, res) {

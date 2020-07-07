@@ -5,7 +5,7 @@ const userController = require('../controllers/userController')
 
 // USER
 
-router.get('/', userController.index);
+router.get('/', userController.user_login_get);
 
 router.get('/login', userController.user_login_get);
 
