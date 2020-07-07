@@ -14,21 +14,21 @@ block content
                     form(action="/user/login", method="post")
                         .form-group
                             label(for="login") E-mail
-                            input.form-control(type="email", id="login")
+                            input.form-control(type="email", id="login", name="login")
                         .form-group
                             label(for="pass") Hasło
-                            input.form-control(type="password", id="pass")
+                            input.form-control(type="password", id="pass", name="pass")
                         input(type="submit", class="btn signInBtn", value="Zaloguj się")
                 #signUp
                     form(action="", method="post")
                         .form-group
                             label(for="mail") E-mail
-                            input.form-control(type="email", id="mail")
+                            input.form-control(type="email", id="mail", name="mail")
                         .form-group
                             label(for="pass") Hasło
-                            input.form-control(type="password", id="pass")
+                            input.form-control(type="password", id="pass", name="pass")
                         .form-group
                             label(for="nick") Nickname
-                            input.form-control(type="text", id="nick")
+                            input.form-control(type="text", id="nick", name="nick")
                         input(type="submit", class="btn signInBtn", value="Zarejestruj się")
 
