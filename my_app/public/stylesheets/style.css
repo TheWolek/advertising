@@ -322,6 +322,18 @@ nav {
   border-bottom: 2px solid var(--lightGreen) !important;
 }
 
+.err {
+  text-align: center;
+  padding: .4em 0;
+  border: 2px solid #b10505;
+  background: #ff6e6e;
+  color: #000;
+  font-size: 15px;
+  margin: 0 auto 1em auto;
+  border-radius: 7px;
+  width: 60%;
+}
+
 @media (min-width:768px) {
   #hamburger {
     display: none;

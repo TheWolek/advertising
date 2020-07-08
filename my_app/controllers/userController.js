@@ -31,7 +31,8 @@ exports.user_login_post = function (req, res, next) {
 
             if (foundUser.length == 0) {
                 let err = new Error('zły e-mail lub hasło')
-                return next(err)
+                console.log(err.message)
+                res.render("user", { loginError: err.message })
             } else {
                 console.log(foundUser)
                 res.send('in progress: user login POST');
