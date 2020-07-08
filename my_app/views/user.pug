@@ -16,13 +16,13 @@ block content
                     form(action="/user/login", method="post")
                         .form-group
                             label(for="login") E-mail
-                            input.form-control(type="email", id="login", name="login")
+                            input.form-control(type="email", id="login", name="email")
                         .form-group
                             label(for="pass") Hasło
-                            input.form-control(type="password", id="pass", name="pass")
+                            input.form-control(type="password", id="pass", name="password")
                         input(type="submit", class="btn signInBtn", value="Zaloguj się")
                 #signUp
-                    form(action="", method="post")
+                    form(action="/user/signup", method="post")
                         .form-group
                             label(for="mail") E-mail
                             input.form-control(type="email", id="mail", name="mail")

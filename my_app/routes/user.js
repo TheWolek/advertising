@@ -60,9 +60,14 @@ router.post('/login',
                 },
                 (err, token) => {
                     if (err) throw err;
-                    res.status(200).json({
-                        token
-                    });
+                    // res.status(200).json({
+                    //     token
+                    // });
+                    // res.status(200)
+                    res.status(200).cookie('token', token, {
+                        maxAge: 1000 * 60,
+                        httpOnly: true
+                    }).redirect('/user/profile/');
                 }
             );
         } catch (e) {
@@ -149,7 +154,8 @@ router.get("/profile", auth, async (req, res) => {
     try {
         // request.user is getting fetched from Middleware after token authentication
         const user = await User.findById(req.user.id);
-        res.json(user);
+        console.log(user)
+        res.render('user_profile', user);
     } catch (e) {
         res.send({ message: "Error in Fetching user" });
     }
