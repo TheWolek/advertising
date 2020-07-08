@@ -21,7 +21,6 @@ exports.user_login_get = function (req, res) {
 };
 
 exports.user_login_post = function (req, res, next) {
-    console.log(req.body)
     let mail = req.body.login
     let pass = req.body.pass
 
@@ -31,11 +30,10 @@ exports.user_login_post = function (req, res, next) {
 
             if (foundUser.length == 0) {
                 let err = new Error('zły e-mail lub hasło')
-                console.log(err.message)
                 res.render("user", { loginError: err.message })
             } else {
                 console.log(foundUser)
-                res.send('in progress: user login POST');
+                res.render("user_profile", { user: foundUser })
             }
         })
 
