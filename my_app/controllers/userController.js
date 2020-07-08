@@ -1,11 +1,16 @@
+const { check, validationResult } = require('express-validator/check');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
 const User = require('../models/user');
+
 
 exports.user_detail = function (req, res) {
     res.send('in progress: user detail: ' + req.params.id);
 };
 
 exports.user_create = function (req, res) {
-    res.send('in progress: create user');
+
 };
 
 exports.user_delete = function (req, res) {

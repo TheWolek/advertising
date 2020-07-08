@@ -7,7 +7,7 @@ var UserSchema = new Schema(
         nickname: { type: String, required: true },
         name: { type: String, required: true },
         email: { type: String, required: true },
-        date_of_join: { type: Date, required: true },
+        date_of_join: { type: Date, required: true, default: Date.now() },
         password: { type: String, required: true }
     }
 );
