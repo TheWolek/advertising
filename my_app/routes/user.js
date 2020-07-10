@@ -38,16 +38,7 @@ router.post(
     userController.user_signup_post
 );
 
-router.get("/profile", auth, async (req, res) => {
-    try {
-        // request.user is getting fetched from Middleware after token authentication
-        const user = await User.findById(req.user.id);
-        console.log(user)
-        res.render('user_profile', user);
-    } catch (e) {
-        res.send({ message: "Error in Fetching user" });
-    }
-});
+router.get("/profile", auth, userController.user_profile);
 
 router.get('/user/:id', userController.user_detail);
 

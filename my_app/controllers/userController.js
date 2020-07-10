@@ -17,8 +17,23 @@ exports.user_update_post = function (req, res) {
     res.send('in progress: user update post');
 };
 
+exports.user_profile = async (req, res) => {
+    try {
+        // request.user is getting fetched from Middleware after token authentication
+        const user = await User.findById(req.user.id);
+        console.log(user)
+        res.render('user_profile', user);
+    } catch (e) {
+        res.send({ message: "Error in Fetching user" });
+    }
+}
+
 exports.user_login_get = function (req, res) {
-    res.render("user", {});
+    console.log(req.cookies.token)
+    if (req.cookies.token != undefined) {
+        res.redirect("/user/profile")
+    } else
+        res.render("user", {});
 };
 
 exports.user_login_post = async (req, res) => {
@@ -122,8 +137,8 @@ exports.user_signup_post = async (req, res) => {
         jwt.sign(
             payload,
             "randomString", {
-            expiresIn: 10000
-        },
+                expiresIn: 10000
+            },
             (err, token) => {
                 if (err) throw err;
                 res.status(200).redirect('/user/login')
