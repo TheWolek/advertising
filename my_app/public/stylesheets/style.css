@@ -120,9 +120,10 @@ nav {
 
 .cat-list, .adverts-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 120px));
   grid-row-gap: 1rem;
   justify-items: center;
+  justify-content: center;
 }
 
 .cat-list {
@@ -130,8 +131,9 @@ nav {
 }
 
 .adverts-list {
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
   grid-column-gap: 1rem;
+  justify-content: center;
 }
 
 .adverts-list {
@@ -331,7 +333,7 @@ nav {
   font-size: 15px;
   margin: 0 auto 1em auto;
   border-radius: 7px;
-  width: 60%;
+  width: 90%;
 }
 
 @media (min-width:768px) {
