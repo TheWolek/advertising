@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h2.adAdd-H2 Zaczynamy!
+    form.adAdd-form(action="", method="post")
+        .form-group
+            label(for="title") Tytuł
+            input.form-control#title(type="text", name="title")
+            label(for="category") Kategoria
+            select.custom-select#category(name="category")
+        .form-group
+            label(for="desc") Opis
+            textarea#desc(name="desc", cols="80", rows="1", resize="off")
+            label(for="price") Cena
+            input.form-control#price(type="number", name="price")
+        label(for="rules")
+            input.custom-checkbox#rules(type="checkbox", name="rules") 
+            = "Zaakceptuj regulamin"
+
+        .adAdd-submit-group
+            input.btn(type="submit", value="Dodaj ogłoszenie")

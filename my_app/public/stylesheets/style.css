@@ -336,6 +336,69 @@ nav {
   width: 90%;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.adAdd-H2 {
+  font-weight: bold;
+  font-size: 34px;
+}
+
+.adAdd-form .form-group, .adAdd-submit-group {
+  width: 100%;
+  background: #fdfdfd;
+  padding: 1.5rem;
+}
+
+.adAdd-form label {
+  font-weight: normal;
+  margin-bottom: .6em;
+  font-size: 17px;
+}
+
+.adAdd-form .form-control {
+  width: 40%;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: #ececec;
+  height: 40px;
+  font-size: 17px;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+}
+
+select, textarea {
+  display: block;
+  margin-top: 0;
+}
+
+textarea {
+  background: #ececec;
+  width: 50%;
+  height: 200px;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: .5em;
+  font-size: 17px;
+  margin-bottom: 1.2em;
+}
+
+input#rules {
+  margin-right: .8em;
+}
+
+.adAdd-submit-group input.btn {
+  background: var(--lightGreen);
+  font-size: 17px;
+  font-weight: bold;
+  padding: .6em .9em;
+}
+
 @media (min-width:768px) {
   #hamburger {
     display: none;
