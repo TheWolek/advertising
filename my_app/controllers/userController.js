@@ -22,7 +22,7 @@ exports.user_profile = async (req, res) => {
         // request.user is getting fetched from Middleware after token authentication
         const user = await User.findById(req.user.id);
         console.log(user)
-        res.render('user_profile', user);
+        res.render('user_profile', { username: user.name, userEmail: user.email });
     } catch (e) {
         res.send({ message: "Error in Fetching user" });
     }
@@ -40,8 +40,8 @@ exports.user_login_post = async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        return res.status(400).json({
-            errors: errors.array()
+        return res.status(400).render("user", {
+            loginError: 'please enter a valid e-mail'
         });
     }
 
@@ -51,14 +51,14 @@ exports.user_login_post = async (req, res) => {
             email
         });
         if (!user)
-            return res.status(400).json({
-                message: "User Not Exist"
+            return res.status(400).render("user", {
+                loginError: "User Not Exist, don't have account? SignUp!"
             });
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
-            return res.status(400).json({
-                message: "Incorrect password or e-mail!"
+            return res.status(400).render("user", {
+                loginError: "Incorrect password or e-mail!"
             });
 
         const payload = {

@@ -16,10 +16,10 @@ router.get('/login', userController.user_login_get);
 
 router.post('/login',
     [
-        check("email", "Please enter a valid email").isEmail(),
-        check("password", "Please enter a valid password").isLength({
-            min: 6
-        })
+        check("email", "Please enter a valid email").isEmail()
+        // check("password", "Please enter a valid password").isLength({
+        //     min: 6
+        // })
     ],
     userController.user_login_post
 )
