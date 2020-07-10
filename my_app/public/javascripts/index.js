@@ -1,4 +1,4 @@
-const Hamburger = $('.hamburger')
+const Hamburger = $('#hamburger')
 const Nav = $('.nav-expand')
 
 const signInBtn = $("#signInBtn")
