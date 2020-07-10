@@ -9,9 +9,11 @@ var advertController = require('../controllers/advertController');
 
 router.get('/', advertController.advert_latest);
 
-router.get('/advert/:id', advertController.advert_details)
+router.get('/advert/add', advertController.advert_create_get)
 
-router.post('/advert/add')
+router.post('/advert/add', advertController.advert_create_post)
+
+router.get('/advert/:id', advertController.advert_details)
 
 //CATEGORY
 

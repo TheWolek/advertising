@@ -42,6 +42,15 @@ exports.advert_details = function (req, res, next) {
     })
 };
 
+exports.advert_create_get = function (req, res) {
+    if (req.cookies.token != undefined) {
+        res.send("in progress: advert create get");
+    } else {
+        res.redirect("/user/login");
+    }
+
+}
+
 exports.advert_create_post = function (req, res) {
     res.send('in progress: advert create post');
 };
