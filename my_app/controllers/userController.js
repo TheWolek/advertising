@@ -80,7 +80,7 @@ exports.user_login_post = async (req, res) => {
                 // });
                 // res.status(200)
                 res.status(200).cookie('token', token, {
-                    maxAge: 1000 * 60,
+                    maxAge: 1000 * 60 * 2,
                     httpOnly: true
                 }).redirect('/user/profile/');
             }
