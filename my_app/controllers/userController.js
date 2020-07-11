@@ -1,4 +1,4 @@
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -140,8 +140,8 @@ exports.user_signup_post = async (req, res) => {
         jwt.sign(
             payload,
             "randomString", {
-                expiresIn: 10000
-            },
+            expiresIn: 10000
+        },
             (err, token) => {
                 if (err) throw err;
                 res.status(200).redirect('/user/login')

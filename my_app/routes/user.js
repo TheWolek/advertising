@@ -1,5 +1,5 @@
 var express = require('express');
-const { check, validationResult } = require("express-validator/check");
+const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 var router = express.Router();
