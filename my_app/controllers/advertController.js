@@ -1,4 +1,5 @@
 const Advert = require('../models/advert');
+const Category = require('../models/category');
 
 const async = require('async');
 
@@ -44,7 +45,15 @@ exports.advert_details = function (req, res, next) {
 
 exports.advert_create_get = function (req, res) {
     if (req.cookies.token != undefined) {
-        res.render("advert_create", {});
+        async.parallel({
+            categories: function (callback) {
+                Category.find(callback);
+            }
+        }, function (err, results) {
+            if (err) return next(err);
+            console.log(results.categories)
+            res.render("advert_create", { categories: results.categories });
+        })
     } else {
         res.redirect("/user/login");
     }
