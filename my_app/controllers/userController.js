@@ -85,6 +85,8 @@ exports.user_login_post = async (req, res) => {
                 }).cookie('user', user._id, {
                     maxAge: 1000 * 60 * 2,
                     httpOnly: true
+                }).cookie('user_logedIn', true, {
+                    maxAge: 1000 * 60 * 2
                 }).redirect('/user/profile/');
             }
         );
