@@ -17,9 +17,9 @@ block content
             textarea#desc(name="desc", cols="80", rows="1", resize="off")
             label(for="price") Cena
             input.form-control#price(type="number", name="price")
-        label(for="rules")
-            input.custom-checkbox#rules(type="checkbox", name="rules") 
+        label(for="adAdd-form-rules")
+            input.custom-checkbox#adAdd-form-rules(type="checkbox", name="rules") 
             = "Zaakceptuj regulamin"
 
         .adAdd-submit-group
-            input.btn(type="submit", value="Dodaj ogłoszenie")
+            input.btn.disabled#adAdd-form-submit(type="submit", value="Dodaj ogłoszenie", disabled="disabled")

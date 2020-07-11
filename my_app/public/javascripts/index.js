@@ -6,6 +6,9 @@ const signUpBtn = $("#signUpBtn")
 const signInForm = $("#signIn")
 const signUpForm = $("#signUp")
 
+const adAddFormRules = $("#adAdd-form-rules")
+const adAddFormSubmit = $("#adAdd-form-submit")
+
 
 Hamburger.on('click', function () {
     Nav.toggleClass('nav-active')
@@ -27,3 +30,14 @@ function changeTab(tab) {
 
 signInBtn.on('click', () => { changeTab(0) })
 signUpBtn.on('click', () => { changeTab(1) })
+
+adAddFormRules.on('click', () => {
+    if (adAddFormSubmit.attr("disabled") == undefined) {
+        adAddFormSubmit.attr("disabled", "disabled")
+        adAddFormSubmit.addClass("disabled")
+    } else {
+        adAddFormSubmit.removeAttr("disabled")
+        adAddFormSubmit.removeClass("disabled")
+    }
+    // adAddFormSubmit.toggleClass("disabled")
+})
