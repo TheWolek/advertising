@@ -51,7 +51,6 @@ exports.advert_create_get = function (req, res) {
             }
         }, function (err, results) {
             if (err) return next(err);
-            console.log(results.categories)
             res.render("advert_create", { categories: results.categories });
         })
     } else {

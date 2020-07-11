@@ -10,6 +10,7 @@ block content
             select.custom-select#category(name="category")
                 for cat in categories
                     option(value=cat.name) #{cat.name}
+                        
         .form-group
             label(for="desc") Opis
             textarea#desc(name="desc", cols="80", rows="1", resize="off")

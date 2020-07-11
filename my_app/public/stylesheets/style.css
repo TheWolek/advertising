@@ -408,6 +408,10 @@ input#rules {
   background: #e0e0e0;
 }
 
+.adAdd-form .form-control:nth-last-child(1) {
+  width: 30%;
+}
+
 @media (min-width:768px) {
   #hamburger {
     display: none;
@@ -423,5 +427,21 @@ input#rules {
 
   .search-cont .form-control {
     width: 50%;
+  }
+
+  .adAdd-form .form-control {
+    width: 40%;
+  }
+
+  .adAdd-form textarea {
+    width: 60%;
+  }
+
+  .adAdd-form select {
+    width: 20%;
+  }
+
+  .adAdd-form .form-control:nth-last-child(1) {
+    width: 10%;
   }
 }
