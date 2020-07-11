@@ -8,6 +8,7 @@ block content
             input.form-control#title(type="text", name="title")
             label(for="category") Kategoria
             select.custom-select#category(name="category")
+                option(value="",selected, disabled) wybierz kategorie
                 for cat in categories
                     option(value=cat.name) #{cat.name}
                         
