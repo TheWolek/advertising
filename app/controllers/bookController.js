@@ -4,7 +4,7 @@ const Genre = require('../models/genre');
 const BookInstance = require('../models/bookInstance');
 
 const async = require('async');
-const { body, validationReult } = require('express-validator/check');
+const { body, validationResult } = require('express-validator');
 const { sanitizeBody } = require('express-validator/filter');
 
 exports.index = function (req, res) {
