@@ -14,19 +14,24 @@ html(lang='en')
       .nav-items.col-xs-12.col-sm-10.col-md-10.col-lg-10.col-xl-9
         a(href='/') Home
         a.btn.BGwhite(href='/catalog/advert/add') Dodaj ogłoszenie
-        .btn.signInBtn#NavsignInBtn
-          img(src="/images/user.png")
-          span Moje konto
-          ul#dropdown
-            li 
-              a(href="/user/profile") Ogłoszenia
-            li 
-              a(href="/user/messages") Wiadomości
-            li 
-              a(href="/user/settings") Ustawienia
-            li 
-              form.form-inline(action="/user/logout" mehthod="post")
-                input.logoutBtn(type="submit", value="Wyloguj")
+        if log
+            .btn.signInBtn#NavsignInBtn
+              img(src="/images/user.png")
+              span Moje konto
+              ul#dropdown
+                li 
+                  a(href="/user/profile") Ogłoszenia
+                li 
+                  a(href="/user/messages") Wiadomości
+                li 
+                  a(href="/user/settings") Ustawienia
+                li 
+                  form.form-inline(action="/user/logout" mehthod="post")
+                    input.logoutBtn(type="submit", value="Wyloguj")
+        else
+          a.btn.signInBtn(href="/user/login")
+            img(src="/images/user.png")
+            span Moje konto
 
         #hamburger
           span#h-1

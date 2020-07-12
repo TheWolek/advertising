@@ -15,7 +15,7 @@ exports.categories = function (req, res, next) {
         .populate('categories')
         .exec(function (err, list_category) {
             if (err) return next(err);
-            res.render('category_list', { category_list: list_category });
+            res.render('category_list', { title: "kategorie", category_list: list_category, log: req.cookies.user_logedIn });
         });
 };
 
@@ -39,7 +39,7 @@ exports.category = function (req, res, next) {
             return next(err);
         }
         // Successful, so render
-        res.render('category', { category: results.category, category_adverts: results.category_adverts });
+        res.render('category', { title: results.category.name, category: results.category, category_adverts: results.category_adverts, log: req.cookies.user_logedIn });
     });
 }
 

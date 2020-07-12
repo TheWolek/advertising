@@ -20,7 +20,7 @@ exports.advert_latest = function (req, res, next) {
         .populate('adverts')
         .exec(function (err, list_adverts) {
             if (err) return next(err);
-            res.render('advert_list', { title: 'Latest adverts', advert_list: list_adverts });
+            res.render('advert_list', { title: 'Latest adverts', advert_list: list_adverts, log: req.cookies.user_logedIn });
         });
 };
 
@@ -41,7 +41,7 @@ exports.advert_details = function (req, res, next) {
         }
 
         console.log(results)
-        res.render('advert_detail', { advert: results.advert })
+        res.render('advert_detail', { title: results.advert.title, advert: results.advert, log: req.cookies.user_logedIn })
     })
 };
 
@@ -53,7 +53,7 @@ exports.advert_create_get = function (req, res) {
             }
         }, function (err, results) {
             if (err) return next(err);
-            res.render("advert_create", { categories: results.categories });
+            res.render("advert_create", { title: "nowe ogłoszenie", categories: results.categories, log: req.cookies.user_logedIn });
         })
     } else {
         res.redirect("/user/login");
@@ -98,7 +98,7 @@ exports.advert_create_post = [
                 },
             }, function (err, results) {
                 if (err) { return next(err); }
-                res.render('advert_create', { categories: results.categories, advert: advert, errors: errors.array() });
+                res.render('advert_create', { title: "nowe ogłoszenie", categories: results.categories, advert: advert, errors: errors.array(), log: req.cookies.user_logedIn });
             });
             return;
         }

@@ -18,15 +18,21 @@ exports.user_update_post = function (req, res) {
 };
 
 exports.user_messages = function (req, res) {
-    res.render("user_messages", {})
+    res.render("user_messages", { title: "wiadomości", log: req.cookies.user_logedIn })
 }
 
 exports.user_settings = function (req, res) {
-    res.render("user_settings", {})
+    res.render("user_settings", { title: "ustawienia", log: req.cookies.user_logedIn })
 }
 
 exports.user_logout_post = function (req, res) {
-    res.send('in progress: user logout post');
+    if (req.cookies.user_logedIn == "true") {
+        res.status(200)
+            .clearCookie('token')
+            .clearCookie('user')
+            .clearCookie('user_logedIn')
+            .redirect('/')
+    }
 }
 
 exports.user_profile = async (req, res) => {
@@ -34,7 +40,7 @@ exports.user_profile = async (req, res) => {
         // request.user is getting fetched from Middleware after token authentication
         const user = await User.findById(req.user.id);
         console.log(user)
-        res.render('user_profile', { username: user.name, userEmail: user.email });
+        res.render('user_profile', { title: "profil", username: user.name, userEmail: user.email, log: req.cookies.user_logedIn });
     } catch (e) {
         res.send({ message: "Error in Fetching user" });
     }
@@ -45,7 +51,7 @@ exports.user_login_get = function (req, res) {
     if (req.cookies.token != undefined) {
         res.redirect("/user/profile")
     } else
-        res.render("user", {});
+        res.render("user", { title: "logowanie", log: req.cookies.user_logedIn });
 };
 
 exports.user_login_post = async (req, res) => {
@@ -53,7 +59,9 @@ exports.user_login_post = async (req, res) => {
 
     if (!errors.isEmpty()) {
         return res.status(400).render("user", {
-            loginError: 'please enter a valid e-mail'
+            title: 'logowanie',
+            loginError: 'please enter a valid e-mail',
+            log: req.cookies.user_logedIn
         });
     }
 
@@ -64,13 +72,17 @@ exports.user_login_post = async (req, res) => {
         });
         if (!user)
             return res.status(400).render("user", {
-                loginError: "User Not Exist, don't have account? SignUp!"
+                title: 'logowanie',
+                loginError: "User Not Exist, don't have account? SignUp!",
+                log: req.cookies.user_logedIn
             });
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
             return res.status(400).render("user", {
-                loginError: "Incorrect password or e-mail!"
+                title: 'logowanie',
+                loginError: "Incorrect password or e-mail!",
+                log: req.cookies.user_logedIn
             });
 
         const payload = {

@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
         .populate('categories')
         .exec(function (err, list_category) {
           if (err) return next(err);
-          res.render('index', { title: 'olx', category_list: list_category, advert_list: list_adverts });
+          res.render('index', { title: 'olx', category_list: list_category, advert_list: list_adverts, log: req.cookies.user_logedIn });
         });
     });
 });
