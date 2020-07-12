@@ -13,10 +13,21 @@ html(lang='en')
       h1.logo Advertising  
       .nav-items.col-xs-12.col-sm-10.col-md-10.col-lg-10.col-xl-9
         a(href='/') Home
-        a(href='/catalog/advert/add' class="btn BGwhite") Dodaj ogłoszenie
-        a(href='/user/login' class="btn signInBtn") 
+        a.btn.BGwhite(href='/catalog/advert/add') Dodaj ogłoszenie
+        .btn.signInBtn#NavsignInBtn
           img(src="/images/user.png")
           span Moje konto
+          ul#dropdown
+            li 
+              a(href="/user/profile") Ogłoszenia
+            li 
+              a(href="/user/messages") Wiadomości
+            li 
+              a(href="/user/settings") Ustawienia
+            li 
+              form.form-inline(action="/user/logout" mehthod="post")
+                input.logoutBtn(type="submit", value="Wyloguj")
+
         #hamburger
           span#h-1
           span#h-2
