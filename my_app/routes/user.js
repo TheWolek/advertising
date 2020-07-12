@@ -46,4 +46,10 @@ router.get('/user/:id/delete', userController.user_delete);
 
 router.post('/user/:id/update', userController.user_update_post);
 
+router.get("/messages", userController.user_messages);
+
+router.get("/settings", userController.user_settings);
+
+router.get("/logout", userController.user_logout_post);
+
 module.exports = router;

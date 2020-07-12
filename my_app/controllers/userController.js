@@ -17,6 +17,18 @@ exports.user_update_post = function (req, res) {
     res.send('in progress: user update post');
 };
 
+exports.user_messages = function (req, res) {
+    res.render("user_messages", {})
+}
+
+exports.user_settings = function (req, res) {
+    res.render("user_settings", {})
+}
+
+exports.user_logout_post = function (req, res) {
+    res.send('in progress: user logout post');
+}
+
 exports.user_profile = async (req, res) => {
     try {
         // request.user is getting fetched from Middleware after token authentication
@@ -142,8 +154,8 @@ exports.user_signup_post = async (req, res) => {
         jwt.sign(
             payload,
             "randomString", {
-            expiresIn: 10000
-        },
+                expiresIn: 10000
+            },
             (err, token) => {
                 if (err) throw err;
                 res.status(200).redirect('/user/login')
